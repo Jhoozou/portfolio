@@ -107,7 +107,7 @@ nav_option = st.sidebar.selectbox("Projet Population :",
                                     ["Données brutes", 
                                      "Données Etat civil",
                                      "Données Statut d'Emploi",
-                                     "Données HAR",
+                                     "Données Catégorie de la population",
                                      "Homme vs Femme"])
 
 
@@ -166,7 +166,7 @@ if nav_option == "Données brutes":
         plot_compact_histogram('CIVIL_STATUS', cleaned_data, civil_status_dict, "Distribution par État Civil", fig_size=(5, 3))
 
     with col6:
-        plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par HAR", fig_size=(5, 3))
+        plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par Catégorie de la population", fig_size=(5, 3))
     
     
     
@@ -217,7 +217,7 @@ elif nav_option == "Données Etat civil":
         with col5:
             plot_compact_histogram('CIVIL_STATUS', cleaned_data, civil_status_dict, "Distribution par État Civil (Données nettoyées)", fig_size=(5, 3))
         with col6:
-            plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par HAR", fig_size=(5, 3))
+            plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par Catégorie de la population", fig_size=(5, 3))
     
     elif selected_filter == "Voir distribution de l'age":
         
@@ -299,7 +299,7 @@ elif nav_option == "Données Statut d'Emploi":
         with col5:
             plot_compact_histogram('CIVIL_STATUS', cleaned_data, civil_status_dict, "Distribution par État Civil (Données nettoyées)", fig_size=(5, 3))
         with col6:
-            plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par HAR", fig_size=(5, 3))
+            plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par Catégorie de la population", fig_size=(5, 3))
 
 
     elif selected_filter == "Voir distribution de l'age":
@@ -340,10 +340,10 @@ elif nav_option == "Données Statut d'Emploi":
     
     
 
-elif nav_option == "Données HAR":
+elif nav_option == "Données Catégorie de la population":
     
     filtres = ["Sans filtre", "Sexe connu","Sexe inconnu","Voir distribution de l'age"]  # Liste des années avec l'option "Tout"
-    selected_filter = st.selectbox("Filtre pour HAR :", filtres)
+    selected_filter = st.selectbox("Filtre pour Catégorie de la population :", filtres)
 
     cleaned_data = data[data['TIME_PERIOD'] == 2021]
     cleaned_data = cleaned_data[cleaned_data['HAR']!='_T']
@@ -380,7 +380,7 @@ elif nav_option == "Données HAR":
         with col5:
             plot_compact_histogram('CIVIL_STATUS', cleaned_data, civil_status_dict, "Distribution par État Civil (Données nettoyées)", fig_size=(5, 3))
         with col6:
-            plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par HAR", fig_size=(5, 3))
+            plot_compact_histogram('HAR', cleaned_data, population_category_dict, "Distribution par Catégorie de la population", fig_size=(5, 3))
 
 
     elif selected_filter == "Voir distribution de l'age":
@@ -473,10 +473,10 @@ elif nav_option == "Homme vs Femme":
     st.write("Il y a 2 fois moins d'homme au foyer")
     
     with col5:
-        plot_compact_histogram('HAR', hommes_data_har, population_category_dict, "Hommes avec HAR", fig_size=(5, 3))
+        plot_compact_histogram('HAR', hommes_data_har, population_category_dict, "Hommes avec Catégorie de la population", fig_size=(5, 3))
     
     with col6:
-        plot_compact_histogram('HAR', femmes_data_har, population_category_dict, "Femmes avec HAR", fig_size=(5, 3))
+        plot_compact_histogram('HAR', femmes_data_har, population_category_dict, "Femmes avec Catégorie de la population", fig_size=(5, 3))
 
 
 
