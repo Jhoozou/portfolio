@@ -21,12 +21,7 @@ def plot_compact_histogram(x_column, data, labels_dict, title, fig_size=(5, 3)):
 # Charger les données
 
 data = pd.read_csv("DS_RP_POPULATION_PRINC_sample.csv", sep=';', header=0)
-"""
-#TEMPORAIRE
-sample_size = int(len(data) / 10)  # Calculer un dixième du nombre total de lignes
-data = data.sample(n=sample_size, random_state=42)  # Prendre un échantillon aléatoire
-data.to_csv("DS_RP_POPULATION_PRINC_sample.csv", sep=';', index=False)
-"""
+
 
 
 time_period_dict = {
@@ -97,7 +92,7 @@ cleaned_data = data.copy()
 
 
 # Titre de la page
-st.set_page_config(page_title="Analyse de la Population", page_icon=":bar_chart:", layout="wide")
+# st.set_page_config(page_title="Analyse de la Population", page_icon=":bar_chart:", layout="wide")
 st.title("Analyse de la Population - Visualisation des données")
 
 
@@ -124,7 +119,7 @@ st.sidebar.markdown("[Mon LinkedIn](https://www.linkedin.com/in/votreprofil)")
 # Bouton pour télécharger le CV
 st.sidebar.download_button(
     label="Télécharger mon CV",
-    data=open("C:/Users\steph\OneDrive\Desktop\CV Stephane HO.pdf", 'rb').read(),  # Remplacez par le chemin vers votre CV
+    data=open("CV Stephane HO.pdf", 'rb').read(),  # Remplacez par le chemin vers votre CV
     file_name='Mon_CV.pdf',
     mime='application/pdf'
 )
