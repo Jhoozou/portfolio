@@ -5,8 +5,8 @@ import streamlit as st
 
 def plot_compact_histogram(x_column, data, labels_dict, title, fig_size=(5, 3)):
     plt.figure(figsize=fig_size)  # Ajuster la taille de la figure
-    #sns.countplot(x=x_column, data=data, palette="viridis", order=labels_dict.keys())
-    sns.countplot(x=x_column, data=data, hue='hue_column', palette='viridis', order=labels_dict.keys(), legend=False)
+    sns.countplot(x=x_column, data=data, palette="viridis", order=labels_dict.keys())
+    #sns.countplot(x=x_column, data=data, hue='hue_column', palette='viridis', order=labels_dict.keys(), legend=False)
 
     plt.title(title, fontsize=14, weight='bold')
     plt.xlabel(x_column, fontsize=10)
